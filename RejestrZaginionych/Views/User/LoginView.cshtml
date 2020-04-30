@@ -1,0 +1,31 @@
+﻿@model RejestrZaginionych.Models.UserLogin
+
+
+@{
+    ViewBag.Title = "Zaloguj się";
+}
+<div style="width: 100%">
+    <div style="width: 350px;  margin: 40px auto; border: 1px solid #f3eded; padding: 0px 20px 20px 20px">
+        <h3>Logowanie</h3>
+        @using (Html.BeginForm("Login", "User")) {
+
+            <div class="form-label">Login</div>
+            @Html.TextBoxFor(u => u.Login, new { Class = "login-input" })
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(u => u.Login)
+            </div>
+            <div class="form-label">Hasło</div>
+            @Html.PasswordFor(u => u.PasswordString, new { Class = "login-input" })
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(u => u.PasswordString)
+            </div>
+
+            <input class="btn-primary" style="margin-top: 20px; width: 100%;" type="submit" value="Zaloguj" />
+
+        }
+        <hr />
+        <div>Jeśli nie masz konta @Html.ActionLink("ZAREJESTRUJ SIĘ", "Register", "Home").</div>
+
+    </div>
+        
+</div>

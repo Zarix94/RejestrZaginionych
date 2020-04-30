@@ -1,0 +1,96 @@
+﻿@model RejestrZaginionych.Models.User
+
+@{
+    ViewBag.Title = "Zarejestruj się";
+}
+
+
+<div style="width: 100%">
+    <div style="width: 400px;  margin: 40px auto; border: 1px solid #f3eded; padding: 0px 20px 20px 20px;">
+        <h3>Rejestracja</h3>
+        @using (Html.BeginForm("RegisterUser", "User")) {
+            <div style="display: flex" class="row">
+                <div style="width:30%" class="form-label">
+                    Login
+                </div>
+                <div style="width:70%">
+                    @Html.TextBoxFor(u => u.Login, new { Class = "login-input" })
+                    <div style="width: 100%">
+                        @Html.ValidationMessageFor(u => u.Login)
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex" class="row">
+                <div style="width:30%" class="form-label">
+                    Adres e-mail
+                </div>
+                <div style="width:70%">
+                    @Html.TextBoxFor(u => u.Email, new { Class = "login-input" })
+                    <div style="width: 100%">
+                        @Html.ValidationMessageFor(u => u.Email)
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex" class="row">
+                <div style="width:30%" class="form-label">
+                    Powtórz e-mail
+                </div>
+                <div style="width:70%">
+                    @Html.TextBoxFor(u => u.RepeatEmail, new { Class = "login-input" })
+                    <div style="width: 100%">
+                        @Html.ValidationMessageFor(u => u.RepeatEmail)
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex" class="row">
+                <div style="width:30%" class="form-label">
+                    Hasło
+                </div>
+                <div style="width:70%">
+                    @Html.PasswordFor(u => u.PasswordString, new { Class = "login-input" })
+                    <div style="width: 100%">
+                        @Html.ValidationMessageFor(u => u.PasswordString)
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex" class="row">
+                <div style="width:30%" class="form-label">
+                    Powtórz hasło
+                </div>
+                <div style="width:70%">
+                    @Html.PasswordFor(u => u.RepeatPasswordString, new { Class = "login-input" })
+                    <div style="width: 100%">
+                        @Html.ValidationMessageFor(u => u.RepeatPasswordString)
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex" class="row">
+                <div style="width:30%" class="form-label">
+                    Imię
+                </div>
+                <div style="width:70%">
+                    @Html.TextBoxFor(u => u.FirstName, new { Class = "login-input" })
+                    <div style="width: 100%">
+                        @Html.ValidationMessageFor(u => u.FirstName)
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex" class="row">
+                <div style="width:30%" class="form-label">
+                    Nazwisko
+                </div>
+                <div style="width:70%">
+                    @Html.TextBoxFor(u => u.LastName, new { Class = "login-input" })
+                    <div style="width: 100%">
+                        @Html.ValidationMessageFor(u => u.LastName)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <input style="width: 100%; margin-top: 20px; max-width: 100%;" class="btn-primary" type="submit" value="Zarejestruj" />
+                </div>
+                }
+            </div>
+
+        </div>

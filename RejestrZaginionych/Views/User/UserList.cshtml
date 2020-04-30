@@ -1,0 +1,63 @@
+﻿<script src="~/Scripts/UserList.js"></script>
+
+@{
+    ViewBag.Title = "Użytkownicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+<table id="UserList" class="display" style="width: 100%">
+    <thead>
+        <tr>
+            <th>Login</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Adres E-mail</th>
+            <th>Aktywny</th>
+            <th>Typ użytkownika</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    @{
+
+    <tbody>
+        @foreach (RejestrZaginionych.Models.User user in ViewBag.UserList) {
+        <tr>
+            <td>@user.Login</td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.Email</td>
+
+            @if (user.Active == false) {
+                <td>Nie</td>}
+            else {
+                <td>Tak</td>}
+
+            @if (user.UserType == 1) {
+                <td>Użytkownik</td>}
+            else {
+                <td>Administrator</td>}
+
+
+                <td>
+                    @if (user.Active == false) {
+                        <span><strong>@Html.ActionLink("Aktywuj", "ChangeActive", new { userId = user.Id }, null)</strong></span>
+                    }
+                    else {
+                        <span><strong>@Html.ActionLink("Dezaktywuj", "ChangeActive", new { userId = user.Id }, null)</strong></span>
+                    }
+
+                    <span><strong>@Html.ActionLink("Zmień typ", "ChangeType", new { userId = user.Id }, null)</strong></span>
+                </td>
+
+
+
+
+
+    </tr>
+        }
+
+
+
+    </tbody> }
+</table>

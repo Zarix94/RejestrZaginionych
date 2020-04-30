@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Rejestr osób zaginionych";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="~/Scripts/MissingPersonList.js"></script>
+<h3>@ViewBag.Title</h3>
+<hr />
+@if (Session["User"] == null) {
+    <strong><span>By dodać zaginioną osobę należy się zalogować</span></strong>
+}
+else {
+    <span><strong>@Html.ActionLink("Dodaj nowy wpis", "AddMissingPerson", "MissingPerson")</strong></span>
+}
+
+<table id="MissingPersonList" class="display" style="width: 100%">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Wiek</th>
+            <th>Kolor oczów</th>
+            <th>Kolor włosów</th>
+            <th>Wzrost</th>
+            <th>Data zaginięcia</th>
+            <th>Miasto</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (RejestrZaginionych.Models.MissingPerson person in ViewBag.MissingPersonList) {
+            <tr class="missingPersonRow" data-person-id="@person.Id">
+                <td>@person.Name</td>
+                <td>@person.Age</td>
+                <td>@person.EyeColor</td>
+                <td>@person.HairColor</td>
+                <td>@person.Height</td>
+                <td>@person.MissingDate</td>
+                <td>@person.City</td>
+
+            </tr>
+
+        }
+
+
+    </tbody>
+</table>

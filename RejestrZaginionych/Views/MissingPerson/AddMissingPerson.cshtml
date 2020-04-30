@@ -1,0 +1,129 @@
+﻿@model RejestrZaginionych.Models.MissingPerson
+
+@{
+    ViewBag.Title = "Dodawanie osoby zaginionej";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Dodaj osobę poszukiwaną</h3>
+<hr />
+@using (Html.BeginForm("AddMissingPerson", "MissingPerson", FormMethod.Post, new {
+    enctype = "multipart/form-data"
+})) {
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Imię
+        </div>
+        <div style="width:70%">
+            @Html.TextBoxFor(m => m.Name)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Wiek
+        </div>
+        <div style="width:70%">
+            @Html.EditorFor(m => m.Age)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Data zaginięcia
+        </div>
+        <div style="width:70%">
+            @Html.EditorFor(m => m.MissingDate)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.MissingDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Kolor oczu
+        </div>
+        <div style="width:70%">
+            @Html.EditorFor(m => m.EyeColor)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.EyeColor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Kolor włosów
+        </div>
+        <div style="width:70%">
+            @Html.EditorFor(m => m.HairColor)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.HairColor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Wzrost
+        </div>
+        <div style="width:70%">
+            @Html.EditorFor(m => m.Height)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.Height, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Znaki szczególne
+        </div>
+        <div style="width:70%">
+            @Html.EditorFor(m => m.DistinguishingMarks)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.DistinguishingMarks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Miasto
+        </div>
+        <div style="width:70%">
+            @Html.EditorFor(m => m.City)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Opis
+        </div>
+        <div style="width:70%">
+            @Html.TextAreaFor(m => m.Description)
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div style="display: flex" class="row">
+        <div style="width:30%" class="form-label">
+            Zdjęcie
+        </div>
+        <div style="width:70%">
+            <input type="file" name="ImageFile" required />
+            <div style="width: 100%">
+                @Html.ValidationMessageFor(m => m.ImageFile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <input style="width: 440px; margin-top: 20px; max-width: 100%;" class="btn-primary" type="submit" value="Dodaj wpis" />
+}
