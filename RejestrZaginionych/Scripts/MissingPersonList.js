@@ -2,10 +2,11 @@
     console.log(data);
 
     var html = '';
+    html += '<div style="font-size: 14px;">';
     html += '<img style="width: 200px; height: 300px;"src="' + data.ImagePath + '" />';
     if (data.DistinguishingMarks != '') {
         html += '<div style="text-align: left;"><strong>Znaki szczególne:</strong></div>';
-        html += '<div style="text-align: left;">' + data.DistinguishingMarks + '</div>';
+        html += '<div style="text-align: left; padding-bottom: 5px;">' + data.DistinguishingMarks + '</div>';
     }
 
     if (data.Description != '') {
@@ -13,7 +14,7 @@
         html += '<div style="text-align: left;">' + data.Description +'</div>';
     }
 
-    html += '';
+    html += '</div>';
 
 
 
